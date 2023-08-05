@@ -1,11 +1,14 @@
 package com.project.CarDB.Owner;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.project.CarDB.Car.Car;
 import jakarta.persistence.*;
 
 import java.util.List;
 
 @Entity
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Owner {
 
     @Id @GeneratedValue(strategy = GenerationType.AUTO) @Column(name = "`id`") Long id;
@@ -15,6 +18,7 @@ public class Owner {
     @Column(name = "`secondName`")
     private String secondName;
 
+    @JsonIgnore
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "owner")
     private List<Car> cars;
 
