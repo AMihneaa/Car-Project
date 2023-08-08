@@ -1,11 +1,12 @@
-package com.project.CarDB;
+package com.project.CarDB.Config;
 
-import com.project.CarDB.Car.Car;
-import com.project.CarDB.Car.CarRepository;
-import com.project.CarDB.Owner.Owner;
-import com.project.CarDB.Owner.OwnerRepository;
-import com.project.CarDB.User.User;
-import com.project.CarDB.User.UserRepository;
+import com.project.CarDB.CarDbApplication;
+import com.project.CarDB.Domain.Car.Car;
+import com.project.CarDB.Domain.Car.CarRepository;
+import com.project.CarDB.Domain.Owner.Owner;
+import com.project.CarDB.Domain.Owner.OwnerRepository;
+import com.project.CarDB.Domain.User.User;
+import com.project.CarDB.Domain.User.UserRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

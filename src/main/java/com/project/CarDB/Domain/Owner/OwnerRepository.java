@@ -1,4 +1,4 @@
-package com.project.CarDB.Owner;
+package com.project.CarDB.Domain.Owner;
 
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;

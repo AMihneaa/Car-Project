@@ -1,8 +1,8 @@
-package com.project.CarDB.Owner;
+package com.project.CarDB.Domain.Owner;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.project.CarDB.Car.Car;
+import com.project.CarDB.Domain.Car.Car;
 import jakarta.persistence.*;
 
 import java.util.List;

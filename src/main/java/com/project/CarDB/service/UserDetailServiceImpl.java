@@ -1,7 +1,7 @@
 package com.project.CarDB.service;
 
-import com.project.CarDB.User.User;
-import com.project.CarDB.User.UserRepository;
+import com.project.CarDB.Domain.User.User;
+import com.project.CarDB.Domain.User.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

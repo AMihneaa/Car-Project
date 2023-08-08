@@ -1,6 +1,6 @@
-package com.project.CarDB.Car;
+package com.project.CarDB.Domain.Car;
 
-import com.project.CarDB.Owner.Owner;
+import com.project.CarDB.Domain.Owner.Owner;
 import jakarta.persistence.*;
 
 @Entity

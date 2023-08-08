@@ -1,4 +1,4 @@
-package com.project.CarDB.User;
+package com.project.CarDB.Domain.User;
 
 import jakarta.persistence.*;
 

@@ -1,4 +1,4 @@
-package com.project.CarDB.Car;
+package com.project.CarDB.Domain.Car;
 
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
