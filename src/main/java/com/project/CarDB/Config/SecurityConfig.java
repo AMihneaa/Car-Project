@@ -4,8 +4,8 @@ import com.project.CarDB.service.UserDetailServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
+import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.authentication.AuthenticationManager;
 
@@ -19,15 +19,14 @@ import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
 
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
-import org.springframework.security.web.servlet.util.matcher.MvcRequestMatcher;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
-import org.springframework.security.web.util.matcher.RequestMatcher;
-import org.springframework.web.servlet.mvc.condition.PatternsRequestCondition;
+
 
 
 @Configuration
 @EnableWebSecurity
 @EnableMethodSecurity
+@EnableGlobalMethodSecurity(prePostEnabled = true, securedEnabled = true, jsr250Enabled = true)
 public class SecurityConfig {
 
     @Autowired
@@ -79,9 +78,9 @@ public class SecurityConfig {
         http
                 .authorizeRequests(authorizeRequests ->
                         authorizeRequests
-                                .requestMatchers("/login").permitAll() // Permite cererile POST la /login
-                                .requestMatchers("/", "/other-public-routes").authenticated() // Necesită autentificare pentru alte rute publice
-                                .anyRequest().authenticated() // Restul rutelor necesită autentificare
+                                .requestMatchers(new AntPathRequestMatcher("/login", "POST")).permitAll()
+                                .requestMatchers(new AntPathRequestMatcher("/login")).anonymous()// Permite cererile POST la /login
+                                .anyRequest().permitAll() // Necesită autentificare pentru alte rute publice
                 )
                 .authenticationProvider(authenticationProvider())
                 .csrf().disable()
