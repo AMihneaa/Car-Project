@@ -1,6 +1,8 @@
 package com.project.CarDB.Config;
 
 import com.project.CarDB.service.UserDetailServiceImpl;
+import com.project.CarDB.web.AuthEntryPoint;
+import com.project.CarDB.web.AuthenticationFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -20,7 +22,13 @@ import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
 
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.CorsConfigurationSource;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
+
+import java.util.Arrays;
 
 
 @Configuration
@@ -30,6 +38,12 @@ public class SecurityConfig  {
 
     @Autowired
     UserDetailServiceImpl userDetailsService;
+
+    @Autowired
+    AuthenticationFilter authenticationFilter;
+
+    @Autowired
+    AuthEntryPoint authEntryPoint;
     @Bean
     public UserDetailsService userDetailsService (BCryptPasswordEncoder bCryptPasswordEncoder){
         InMemoryUserDetailsManager manager = new InMemoryUserDetailsManager();
@@ -61,36 +75,41 @@ public class SecurityConfig  {
         return authConfig.getAuthenticationManager();
     }
 
-//    @Bean
-//    public AuthenticationManager authenticationManager(HttpSecurity http, BCryptPasswordEncoder bCryptPasswordEncoder, UserDetailServiceImpl userDetailService) throws Exception {
-//        return http.getSharedObject(AuthenticationManagerBuilder.class)
-//                .userDetailsService(userDetailsService)
-//                .passwordEncoder(bCryptPasswordEncoder)
-//                .and()
-//                .build();
-//
-//    }
     @Bean
     SecurityFilterChain configureSecurity(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests(authorizeRequests ->
                         authorizeRequests
-                                .requestMatchers(new AntPathRequestMatcher("/login", "POST")).permitAll()// Permite cererile POST la /login
+                                .requestMatchers(new AntPathRequestMatcher("/login", "POST")).permitAll()
                                 .requestMatchers(new AntPathRequestMatcher("/", "GET")).authenticated()
-                        .anyRequest().authenticated() // Necesită autentificare pentru alte rute publice
+                        .anyRequest().authenticated()
                 )
-                .csrf().disable()
+                .csrf().disable().cors().and()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
 
+        http.exceptionHandling().authenticationEntryPoint(authEntryPoint);
+        http.addFilterBefore(authenticationFilter, UsernamePasswordAuthenticationFilter.class);
 
         return http.build();
     }
 
-//    @Bean
-//    SecurityFilterChain filterChain(HttpSecurity http) throws Exception{
-//        http.authorizeHttpRequests().requestMatchers(HttpMethod.POST,"/login").permitAll();
-//        http.authorizeHttpRequests().anyRequest().authenticated();
-//
-//        return http.build();
-//    }
+    @Bean
+    CorsConfigurationSource corsConfigurationSource(){
+        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+
+        CorsConfiguration configuration = new CorsConfiguration();
+        configuration.setAllowedOrigins(Arrays.asList("*"));
+        configuration.setAllowedMethods(Arrays.asList("*"));
+        configuration.setAllowedHeaders(Arrays.asList("*"));
+        configuration.setAllowCredentials(false);
+        configuration.applyPermitDefaultValues();
+
+        // localhost:3000 is allowed
+//        config.setAllowedOrigins(Arrays.asList
+//                ("http://localhost:3000"));
+
+        source.registerCorsConfiguration("/**", configuration);
+        return source;
+    }
+
 }
