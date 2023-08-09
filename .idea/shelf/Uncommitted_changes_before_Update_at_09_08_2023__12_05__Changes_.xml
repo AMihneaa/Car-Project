@@ -1,0 +1,19 @@
+<changelist name="Uncommitted_changes_before_Update_at_09_08_2023,_12_05_[Changes]" date="1691571907862" recycled="true" deleted="true">
+  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_09_08_2023,_12_05_[Changes]/shelved.patch" />
+  <option name="DESCRIPTION" value="Uncommitted changes before Update at 09.08.2023, 12:05 [Changes]" />
+  <binary>
+    <option name="BEFORE_PATH" value="mvnw" />
+    <option name="AFTER_PATH" value="server/mvnw" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_09_08_2023,_12_05_[Changes]/mvnw" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="mvnw.cmd" />
+    <option name="AFTER_PATH" value="server/mvnw.cmd" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_09_08_2023,_12_05_[Changes]/mvnw.cmd" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value=".mvn/wrapper/maven-wrapper.jar" />
+    <option name="AFTER_PATH" value="server/.mvn/wrapper/maven-wrapper.jar" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_09_08_2023,_12_05_[Changes]/maven-wrapper.jar" />
+  </binary>
+</changelist>

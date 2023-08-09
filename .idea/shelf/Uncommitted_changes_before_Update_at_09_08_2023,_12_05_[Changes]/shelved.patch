@@ -1,0 +1,149 @@
+Index: src/main/java/com/project/CarDB/web/AuthenticationFilter.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/project/CarDB/web/AuthenticationFilter.java b/server/src/main/java/com/project/CarDB/web/AuthenticationFilter.java
+rename from src/main/java/com/project/CarDB/web/AuthenticationFilter.java
+rename to server/src/main/java/com/project/CarDB/web/AuthenticationFilter.java
+--- a/src/main/java/com/project/CarDB/web/AuthenticationFilter.java	(revision 8a8ec1768ff18dd690aab0c09f688738e7593d72)
++++ b/server/src/main/java/com/project/CarDB/web/AuthenticationFilter.java	(date 1691571013379)
+@@ -40,4 +40,4 @@
+ 
+         filterChain.doFilter(request, response);
+     }
+-}
++}
+\ No newline at end of file
+Index: src/main/java/com/project/CarDB/web/AuthEntryPoint.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/project/CarDB/web/AuthEntryPoint.java b/server/src/main/java/com/project/CarDB/web/AuthEntryPoint.java
+rename from src/main/java/com/project/CarDB/web/AuthEntryPoint.java
+rename to server/src/main/java/com/project/CarDB/web/AuthEntryPoint.java
+--- a/src/main/java/com/project/CarDB/web/AuthEntryPoint.java	(revision 8a8ec1768ff18dd690aab0c09f688738e7593d72)
++++ b/server/src/main/java/com/project/CarDB/web/AuthEntryPoint.java	(date 1691571013175)
+@@ -23,4 +23,4 @@
+ 
+         writer.println("Error " + authException.getMessage());
+     }
+-}
++}
+\ No newline at end of file
+Index: src/main/java/com/project/CarDB/web/LoginController.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/project/CarDB/web/LoginController.java b/server/src/main/java/com/project/CarDB/web/LoginController.java
+rename from src/main/java/com/project/CarDB/web/LoginController.java
+rename to server/src/main/java/com/project/CarDB/web/LoginController.java
+--- a/src/main/java/com/project/CarDB/web/LoginController.java	(revision 8a8ec1768ff18dd690aab0c09f688738e7593d72)
++++ b/server/src/main/java/com/project/CarDB/web/LoginController.java	(date 1691571012639)
+@@ -34,8 +34,4 @@
+                 .build();
+     }
+ 
+-    @RequestMapping(value = "/", method = RequestMethod.GET)
+-    public String index(){
+-        return "ceva";
+-    }
+ }
+Index: .gitignore
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.gitignore b/server/.gitignore
+rename from .gitignore
+rename to server/.gitignore
+--- a/.gitignore	(revision 8a8ec1768ff18dd690aab0c09f688738e7593d72)
++++ b/server/.gitignore	(date 1691571013032)
+@@ -14,7 +14,7 @@
+ .sts4-cache
+ 
+ ### IntelliJ IDEA ###
+-.idea
++../.idea
+ *.iws
+ *.iml
+ *.ipr
+Index: src/main/java/com/project/CarDB/Config/SecurityConfig.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/project/CarDB/Config/SecurityConfig.java b/server/src/main/java/com/project/CarDB/Config/SecurityConfig.java
+rename from src/main/java/com/project/CarDB/Config/SecurityConfig.java
+rename to server/src/main/java/com/project/CarDB/Config/SecurityConfig.java
+--- a/src/main/java/com/project/CarDB/Config/SecurityConfig.java	(revision 8a8ec1768ff18dd690aab0c09f688738e7593d72)
++++ b/server/src/main/java/com/project/CarDB/Config/SecurityConfig.java	(date 1691571012812)
+@@ -82,7 +82,7 @@
+                         authorizeRequests
+                                 .requestMatchers(new AntPathRequestMatcher("/login", "POST")).permitAll()
+                                 .requestMatchers(new AntPathRequestMatcher("/", "GET")).authenticated()
+-                        .anyRequest().authenticated()
++                                .anyRequest().authenticated()
+                 )
+                 .csrf().disable().cors().and()
+                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+@@ -112,4 +112,4 @@
+         return source;
+     }
+ 
+-}
++}
+\ No newline at end of file
+diff --git a/src/main/java/com/project/CarDB/Domain/Owner/Owner.java b/server/src/main/java/com/project/CarDB/Domain/Owner/Owner.java
+rename from src/main/java/com/project/CarDB/Domain/Owner/Owner.java
+rename to server/src/main/java/com/project/CarDB/Domain/Owner/Owner.java
+diff --git a/src/test/java/com/project/CarDB/CarDbApplicationTests.java b/server/src/test/java/com/project/CarDB/CarDbApplicationTests.java
+rename from src/test/java/com/project/CarDB/CarDbApplicationTests.java
+rename to server/src/test/java/com/project/CarDB/CarDbApplicationTests.java
+diff --git a/src/main/java/com/project/CarDB/service/UserDetailServiceImpl.java b/server/src/main/java/com/project/CarDB/service/UserDetailServiceImpl.java
+rename from src/main/java/com/project/CarDB/service/UserDetailServiceImpl.java
+rename to server/src/main/java/com/project/CarDB/service/UserDetailServiceImpl.java
+diff --git a/src/main/java/com/project/CarDB/Domain/User/UserRepository.java b/server/src/main/java/com/project/CarDB/Domain/User/UserRepository.java
+rename from src/main/java/com/project/CarDB/Domain/User/UserRepository.java
+rename to server/src/main/java/com/project/CarDB/Domain/User/UserRepository.java
+diff --git a/pom.xml b/server/pom.xml
+rename from pom.xml
+rename to server/pom.xml
+diff --git a/src/main/java/com/project/CarDB/CarDbApplication.java b/server/src/main/java/com/project/CarDB/CarDbApplication.java
+rename from src/main/java/com/project/CarDB/CarDbApplication.java
+rename to server/src/main/java/com/project/CarDB/CarDbApplication.java
+diff --git a/src/main/java/com/project/CarDB/Domain/Car/Car.java b/server/src/main/java/com/project/CarDB/Domain/Car/Car.java
+rename from src/main/java/com/project/CarDB/Domain/Car/Car.java
+rename to server/src/main/java/com/project/CarDB/Domain/Car/Car.java
+diff --git a/src/main/java/com/project/CarDB/Domain/User/User.java b/server/src/main/java/com/project/CarDB/Domain/User/User.java
+rename from src/main/java/com/project/CarDB/Domain/User/User.java
+rename to server/src/main/java/com/project/CarDB/Domain/User/User.java
+diff --git a/src/main/java/com/project/CarDB/Domain/Owner/OwnerRepository.java b/server/src/main/java/com/project/CarDB/Domain/Owner/OwnerRepository.java
+rename from src/main/java/com/project/CarDB/Domain/Owner/OwnerRepository.java
+rename to server/src/main/java/com/project/CarDB/Domain/Owner/OwnerRepository.java
+diff --git a/.mvn/wrapper/maven-wrapper.properties b/server/.mvn/wrapper/maven-wrapper.properties
+rename from .mvn/wrapper/maven-wrapper.properties
+rename to server/.mvn/wrapper/maven-wrapper.properties
+diff --git a/src/main/resources/application.properties b/server/src/main/resources/application.properties
+rename from src/main/resources/application.properties
+rename to server/src/main/resources/application.properties
+diff --git a/src/main/java/com/project/CarDB/service/JwtService.java b/server/src/main/java/com/project/CarDB/service/JwtService.java
+rename from src/main/java/com/project/CarDB/service/JwtService.java
+rename to server/src/main/java/com/project/CarDB/service/JwtService.java
+diff --git a/src/main/java/com/project/CarDB/Domain/Account/AccountCredentials.java b/server/src/main/java/com/project/CarDB/Domain/Account/AccountCredentials.java
+rename from src/main/java/com/project/CarDB/Domain/Account/AccountCredentials.java
+rename to server/src/main/java/com/project/CarDB/Domain/Account/AccountCredentials.java
+diff --git a/src/main/java/com/project/CarDB/web/CarController.java b/server/src/main/java/com/project/CarDB/web/CarController.java
+rename from src/main/java/com/project/CarDB/web/CarController.java
+rename to server/src/main/java/com/project/CarDB/web/CarController.java
+diff --git a/src/main/resources/.env.example b/server/src/main/resources/.env.example
+rename from src/main/resources/.env.example
+rename to server/src/main/resources/.env.example
+diff --git a/src/main/java/com/project/CarDB/Domain/Car/CarRepository.java b/server/src/main/java/com/project/CarDB/Domain/Car/CarRepository.java
+rename from src/main/java/com/project/CarDB/Domain/Car/CarRepository.java
+rename to server/src/main/java/com/project/CarDB/Domain/Car/CarRepository.java
+diff --git a/src/main/java/com/project/CarDB/Config/Startup.java b/server/src/main/java/com/project/CarDB/Config/Startup.java
+rename from src/main/java/com/project/CarDB/Config/Startup.java
+rename to server/src/main/java/com/project/CarDB/Config/Startup.java
