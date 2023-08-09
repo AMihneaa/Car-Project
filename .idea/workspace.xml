@@ -4,33 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e849a493-faca-4f0f-a372-b182bae43d7c" name="Changes" comment="Server">
-      <change beforePath="$PROJECT_DIR$/server/server/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/Car Project/server/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/server/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" afterPath="$PROJECT_DIR$/Car Project/server/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/server/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/Car Project/server/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/server/Readme.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Car Project/server/Readme.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/server/mvnw" beforeDir="false" afterPath="$PROJECT_DIR$/Car Project/server/mvnw" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/server/mvnw.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/Car Project/server/mvnw.cmd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/server/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Car Project/server/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/server/src/main/java/com/project/CarDB/CarDbApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/Car Project/server/src/main/java/com/project/CarDB/CarDbApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/server/src/main/java/com/project/CarDB/Config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/Car Project/server/src/main/java/com/project/CarDB/Config/SecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/server/src/main/java/com/project/CarDB/Config/Startup.java" beforeDir="false" afterPath="$PROJECT_DIR$/Car Project/server/src/main/java/com/project/CarDB/Config/Startup.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/server/src/main/java/com/project/CarDB/Domain/Account/AccountCredentials.java" beforeDir="false" afterPath="$PROJECT_DIR$/Car Project/server/src/main/java/com/project/CarDB/Domain/Account/AccountCredentials.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/server/src/main/java/com/project/CarDB/Domain/Car/Car.java" beforeDir="false" afterPath="$PROJECT_DIR$/Car Project/server/src/main/java/com/project/CarDB/Domain/Car/Car.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/server/src/main/java/com/project/CarDB/Domain/Car/CarRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/Car Project/server/src/main/java/com/project/CarDB/Domain/Car/CarRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/server/src/main/java/com/project/CarDB/Domain/Owner/Owner.java" beforeDir="false" afterPath="$PROJECT_DIR$/Car Project/server/src/main/java/com/project/CarDB/Domain/Owner/Owner.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/server/src/main/java/com/project/CarDB/Domain/Owner/OwnerRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/Car Project/server/src/main/java/com/project/CarDB/Domain/Owner/OwnerRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/server/src/main/java/com/project/CarDB/Domain/User/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/Car Project/server/src/main/java/com/project/CarDB/Domain/User/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/server/src/main/java/com/project/CarDB/Domain/User/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/Car Project/server/src/main/java/com/project/CarDB/Domain/User/UserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/server/src/main/java/com/project/CarDB/service/JwtService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Car Project/server/src/main/java/com/project/CarDB/service/JwtService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/server/src/main/java/com/project/CarDB/service/UserDetailServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Car Project/server/src/main/java/com/project/CarDB/service/UserDetailServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/server/src/main/java/com/project/CarDB/web/AuthEntryPoint.java" beforeDir="false" afterPath="$PROJECT_DIR$/Car Project/server/src/main/java/com/project/CarDB/web/AuthEntryPoint.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/server/src/main/java/com/project/CarDB/web/AuthenticationFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/Car Project/server/src/main/java/com/project/CarDB/web/AuthenticationFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/server/src/main/java/com/project/CarDB/web/CarController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Car Project/server/src/main/java/com/project/CarDB/web/CarController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/server/src/main/java/com/project/CarDB/web/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Car Project/server/src/main/java/com/project/CarDB/web/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/server/src/main/resources/.env.example" beforeDir="false" afterPath="$PROJECT_DIR$/Car Project/server/src/main/resources/.env.example" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/server/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/Car Project/server/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/server/src/test/java/com/project/CarDB/CarDbApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/Car Project/server/src/test/java/com/project/CarDB/CarDbApplicationTests.java" afterDir="false" />
+    <list default="true" id="e849a493-faca-4f0f-a372-b182bae43d7c" name="Changes" comment="Front-End">
+      <change afterPath="$PROJECT_DIR$/Car Project/server/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Car Project/server/mvnw" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Car Project/server/mvnw.cmd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Car Project/client/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/Car Project/client/.gitignore" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -87,6 +65,8 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/Car Project/server" />
+      <recent name="$PROJECT_DIR$/Car Project" />
       <recent name="$PROJECT_DIR$/server/server" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/server" />
@@ -114,7 +94,7 @@
       <workItem from="1691569102540" duration="66000" />
       <workItem from="1691569493472" duration="143000" />
       <workItem from="1691569689514" duration="268000" />
-      <workItem from="1691569979741" duration="2383000" />
+      <workItem from="1691569979741" duration="2753000" />
     </task>
     <task id="LOCAL-00001" summary="Server">
       <option name="closed" value="true" />
@@ -124,7 +104,15 @@
       <option name="project" value="LOCAL" />
       <updated>1691572024205</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Front-End">
+      <option name="closed" value="true" />
+      <created>1691572635532</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1691572635532</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -132,6 +120,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Server" />
-    <option name="LAST_COMMIT_MESSAGE" value="Server" />
+    <MESSAGE value="Front-End" />
+    <option name="LAST_COMMIT_MESSAGE" value="Front-End" />
   </component>
 </project>
