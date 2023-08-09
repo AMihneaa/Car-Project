@@ -75,18 +75,19 @@ public class SecurityConfig  {
 
     @Bean
     SecurityFilterChain configureSecurity(HttpSecurity http) throws Exception {
-        http
-                .authorizeRequests(authorizeRequests ->
-                        authorizeRequests
-                                .requestMatchers(new AntPathRequestMatcher("/login", "POST")).permitAll()
-                                .requestMatchers(new AntPathRequestMatcher("/", "GET")).authenticated()
-                                .anyRequest().authenticated()
-                )
-                .csrf().disable().cors().and()
-                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
-
-        http.exceptionHandling().authenticationEntryPoint(authEntryPoint);
-        http.addFilterBefore(authenticationFilter, UsernamePasswordAuthenticationFilter.class);
+//        http
+//                .authorizeRequests(authorizeRequests ->
+//                        authorizeRequests
+//                                .requestMatchers(new AntPathRequestMatcher("/login", "POST")).permitAll()
+//                                .requestMatchers(new AntPathRequestMatcher("/", "GET")).authenticated()
+//                                .anyRequest().authenticated()
+//                )
+//                .csrf().disable().cors().and()
+//                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+//
+//        http.exceptionHandling().authenticationEntryPoint(authEntryPoint);
+//        http.addFilterBefore(authenticationFilter, UsernamePasswordAuthenticationFilter.class);
+        http.csrf().disable().cors().and().authorizeRequests().anyRequest().permitAll();
 
         return http.build();
     }

@@ -5,6 +5,8 @@ import { DataGrid } from "@mui/x-data-grid";
 import Snackbar from '@mui/material/Snackbar';
 
 import { SERVER_URL } from "../Scripts/constant";
+import AddCar from "./AddCar.component";
+import EditCar from "./EditCar.component";
 
 const CarList = () =>{
 
@@ -31,53 +33,108 @@ const CarList = () =>{
         {field: 'year', headerName: 'Year', width: 150},
         {field: 'price', headerName: 'Price', width: 150},
         {
+            field: '_links.car.href',
+            headerName: '',
+            sortable: false,
+            filterable: false,
+            renderCell: row =><EditCar data={row} updateCar={updateCar} />
+        },
+        {
             field: '_links.self.href',
             headerName: '',
             sortable: false,
             filterable: false,
-            renderCell: row =>
-            <button
-            onClick={() => onDeleteClick(row.id)}>Delete
-            </button>
+            renderCell: row =><button onClick={() => onDeleteClick(row.id)}>Delete</button>
         }
     ];
 
     const onDeleteClick = async (url) => {
 
-        if (window.confirm("Are you sure?")) {
-            const response = await fetch(url, {method: 'DELETE'})
-
-            if (response) {
-                getCars(); 
-                setOpen(true);
+        try {
+            if (window.confirm("Are you sure?")) {
+                const response = await fetch(url, { method: 'DELETE' });
+        
+                if (response.ok) {
+                    getCars();
+                    setOpen(true);
+                }
+            } else {
+                throw new Error('Something went wrong');
+            }
+        } catch (error) {
+            alert(error);
         }
-     }
-
+        
     }
 
+    const addCar = async (car) => {
+        try{
 
+            const response = await fetch(SERVER_URL + 'api/cars',
+                                {
+                                     method: 'POST',
+                                      headers: 
+                                                {
+                                                    'Content-Type':'application/json',
+                                                },
+                                body: JSON.stringify(car)
+                                }
+                                
+            );
+
+            if(response.ok){
+                getCars();
+            }
+            else{
+                throw new Error("Something went wrong. You can't add a car at the moment. Please try again later.")
+            }
+
+        }catch ( error ){
+            alert(error);
+        }
+    }
+
+    const updateCar = async (car, link) => {
+        try {
+            const response = await fetch(link, 
+                {
+                    method: "PUT",
+                    headers: {
+                        'Content-Type':'application/json',
+                    },
+                    body: JSON.stringify(car)
+                }
+            );
+
+            if (response.ok){
+                getCars();
+            }
+            else {
+                throw new Error("Something went wrong. You can't modify the car at the moment. Please try again later.");
+            }
+        } catch (error) {
+            alert(error);
+        }
+    }
 
     return (
-        <div style={{ height: 500, width: '100%' }}>
-            <DataGrid 
-            rows={cars} 
-            columns={columns} 
-            disableSelectionOnClick={true}
-            getRowId={row => row._links.self.href}
-            />
-            <Snackbar
-                open = {open}
-                autoHideDuration = {2000}
-                onClose = {() => setOpen(false)}
-                message = "Car deleted"
-             />
-            {/* <Snackbar
-            open={open}
-            autoHideDuration={2000}
-            onClose={() => setOpen(false)}
-            message="Car deleted"
-            /> */}
-      </div>
+        <React.Fragment>
+            <AddCar addCar={addCar} />
+            <div style={{ height: 500, width: '100%' }}>
+                <DataGrid 
+                rows={cars} 
+                columns={columns} 
+                disableSelectionOnClick={true}
+                getRowId={row => row._links.self.href}
+                />
+                <Snackbar
+                    open = {open}
+                    autoHideDuration = {2000}
+                    onClose = {() => setOpen(false)}
+                    message = "Car deleted"
+                />
+            </div>
+        </React.Fragment>
     );
     
 }

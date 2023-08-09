@@ -4,12 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e849a493-faca-4f0f-a372-b182bae43d7c" name="Changes" comment="Front-End">
-      <change afterPath="$PROJECT_DIR$/Car Project/server/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Car Project/server/mvnw" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Car Project/server/mvnw.cmd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Car Project/client/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/Car Project/client/.gitignore" afterDir="false" />
-    </list>
+    <list default="true" id="e849a493-faca-4f0f-a372-b182bae43d7c" name="Changes" comment="Test" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -53,6 +48,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "master",
+    "last_opened_file_path": "/home/mihnea/Java Projects/Car Project/Car Project",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -94,7 +90,7 @@
       <workItem from="1691569102540" duration="66000" />
       <workItem from="1691569493472" duration="143000" />
       <workItem from="1691569689514" duration="268000" />
-      <workItem from="1691569979741" duration="2753000" />
+      <workItem from="1691569979741" duration="2924000" />
     </task>
     <task id="LOCAL-00001" summary="Server">
       <option name="closed" value="true" />
@@ -112,7 +108,15 @@
       <option name="project" value="LOCAL" />
       <updated>1691572635532</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Test">
+      <option name="closed" value="true" />
+      <created>1691573035475</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1691573035475</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -121,6 +125,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Server" />
     <MESSAGE value="Front-End" />
-    <option name="LAST_COMMIT_MESSAGE" value="Front-End" />
+    <MESSAGE value="Test" />
+    <option name="LAST_COMMIT_MESSAGE" value="Test" />
   </component>
 </project>
