@@ -6,9 +6,7 @@ import com.project.CarDB.web.AuthenticationFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
-import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.authentication.AuthenticationManager;
 
@@ -82,7 +80,7 @@ public class SecurityConfig  {
                         authorizeRequests
                                 .requestMatchers(new AntPathRequestMatcher("/login", "POST")).permitAll()
                                 .requestMatchers(new AntPathRequestMatcher("/", "GET")).authenticated()
-                        .anyRequest().authenticated()
+                                .anyRequest().authenticated()
                 )
                 .csrf().disable().cors().and()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);

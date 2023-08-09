@@ -34,8 +34,4 @@ public class LoginController {
                 .build();
     }
 
-    @RequestMapping(value = "/", method = RequestMethod.GET)
-    public String index(){
-        return "ceva";
-    }
 }
