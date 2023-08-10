@@ -79,6 +79,7 @@ public class SecurityConfig  {
                 .authorizeRequests(authorizeRequests ->
                         authorizeRequests
                                 .requestMatchers(new AntPathRequestMatcher("/login", "POST")).permitAll()
+                                .requestMatchers(new AntPathRequestMatcher("/api/register", "POST")).permitAll()
                                 .requestMatchers(new AntPathRequestMatcher("/", "GET")).authenticated()
                                 .anyRequest().authenticated()
                 )
