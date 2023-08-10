@@ -75,19 +75,18 @@ public class SecurityConfig  {
 
     @Bean
     SecurityFilterChain configureSecurity(HttpSecurity http) throws Exception {
-//        http
-//                .authorizeRequests(authorizeRequests ->
-//                        authorizeRequests
-//                                .requestMatchers(new AntPathRequestMatcher("/login", "POST")).permitAll()
-//                                .requestMatchers(new AntPathRequestMatcher("/", "GET")).authenticated()
-//                                .anyRequest().authenticated()
-//                )
-//                .csrf().disable().cors().and()
-//                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
-//
-//        http.exceptionHandling().authenticationEntryPoint(authEntryPoint);
-//        http.addFilterBefore(authenticationFilter, UsernamePasswordAuthenticationFilter.class);
-        http.csrf().disable().cors().and().authorizeRequests().anyRequest().permitAll();
+        http
+                .authorizeRequests(authorizeRequests ->
+                        authorizeRequests
+                                .requestMatchers(new AntPathRequestMatcher("/login", "POST")).permitAll()
+                                .requestMatchers(new AntPathRequestMatcher("/", "GET")).authenticated()
+                                .anyRequest().authenticated()
+                )
+                .csrf().disable().cors().and()
+                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+
+        http.exceptionHandling().authenticationEntryPoint(authEntryPoint);
+        http.addFilterBefore(authenticationFilter, UsernamePasswordAuthenticationFilter.class);
 
         return http.build();
     }
@@ -104,8 +103,7 @@ public class SecurityConfig  {
         configuration.applyPermitDefaultValues();
 
         // localhost:3000 is allowed
-//        config.setAllowedOrigins(Arrays.asList
-//                ("http://localhost:3000"));
+//        config.setAllowedOrigins(Arrays.asList("http://localhost:3000"));
 
         source.registerCorsConfiguration("/**", configuration);
         return source;
