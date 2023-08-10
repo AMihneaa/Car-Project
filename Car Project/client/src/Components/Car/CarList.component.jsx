@@ -18,11 +18,18 @@ const CarList = () =>{
     const [open, setOpen] = useState(false);
 
     const getCars = async () =>  {
-        const response = await fetch(SERVER_URL + 'api/cars');
-        const data = await response.json();
-        
-        console.log(data._embedded.cars);
-        setCars(data._embedded.cars);
+        try{
+            const token = await sessionStorage.getItem("jwt");
+            const response = await fetch(SERVER_URL + 'api/cars',{
+                    headers: { 'Authorization' : token }
+                }
+            );
+            const data = await response.json();
+            
+            setCars(data._embedded.cars);
+        }catch ( error ){
+            alert(error);
+        }
     }
 
     useEffect( () => {
@@ -56,7 +63,8 @@ const CarList = () =>{
 
         try {
             if (window.confirm("Are you sure?")) {
-                const response = await fetch(url, { method: 'DELETE' });
+                const token = await sessionStorage.getItem("jwt");
+                const response = await fetch(url, { method: 'DELETE', headers: { 'Authorization' : token } });
         
                 if (response.ok) {
                     getCars();
@@ -73,13 +81,14 @@ const CarList = () =>{
 
     const addCar = async (car) => {
         try{
-
+            const token = await sessionStorage.getItem("jwt");
             const response = await fetch(SERVER_URL + 'api/cars',
                                 {
                                      method: 'POST',
                                       headers: 
                                                 {
                                                     'Content-Type':'application/json',
+                                                    'Authorization' : token,
                                                 },
                                 body: JSON.stringify(car)
                                 }
@@ -100,11 +109,13 @@ const CarList = () =>{
 
     const updateCar = async (car, link) => {
         try {
+            const token = await sessionStorage.getItem("jwt");
             const response = await fetch(link, 
                 {
                     method: "PUT",
                     headers: {
                         'Content-Type':'application/json',
+                        'Authorization' : token,
                     },
                     body: JSON.stringify(car)
                 }
