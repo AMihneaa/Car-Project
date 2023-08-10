@@ -1,8 +1,12 @@
 import React, { useEffect, useState } from "react";
+ 
+import { DataGrid, GridToolbarContainer, GridToolbarExport, gridClasses } from "@mui/x-data-grid";
 
-import { DataGrid } from "@mui/x-data-grid";
-
+import { Stack } from "@mui/material";
 import Snackbar from '@mui/material/Snackbar';
+
+import IconButton from '@mui/material/IconButton';
+import DeleteIcon from "@mui/icons-material/Delete"
 
 import { SERVER_URL } from "../Scripts/constant";
 import AddCar from "./AddCar.component";
@@ -44,7 +48,7 @@ const CarList = () =>{
             headerName: '',
             sortable: false,
             filterable: false,
-            renderCell: row =><button onClick={() => onDeleteClick(row.id)}>Delete</button>
+            renderCell: row =><IconButton onClick={() => onDeleteClick(row.id)}><DeleteIcon color="error" /></IconButton>
         }
     ];
 
@@ -117,15 +121,26 @@ const CarList = () =>{
         }
     }
 
+    const CustomToolbar = () => {
+        return (
+            <GridToolbarContainer className={gridClasses.toolbarContainer}>
+                <GridToolbarExport />
+            </GridToolbarContainer>
+        );
+    }
+
     return (
-        <React.Fragment>
-            <AddCar addCar={addCar} />
-            <div style={{ height: 500, width: '100%' }}>
+        <React.Fragment >
+            <Stack mt={2} mb={2}>
+                <AddCar addCar={addCar} />
+            </Stack>
+            <div style={{ height: 500, width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', margin: '50px' }}>
                 <DataGrid 
                 rows={cars} 
                 columns={columns} 
                 disableSelectionOnClick={true}
                 getRowId={row => row._links.self.href}
+                components={{Toolbar: CustomToolbar}}
                 />
                 <Snackbar
                     open = {open}
