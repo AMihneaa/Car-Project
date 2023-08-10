@@ -16,6 +16,11 @@ const CarList = () =>{
 
     const [cars, setCars] = useState([]);
     const [open, setOpen] = useState(false);
+    const token = sessionStorage.getItem("jwt");
+
+    if (token == null){
+        window.location.replace("/login");
+    }
 
     const getCars = async () =>  {
         try{
@@ -115,7 +120,7 @@ const CarList = () =>{
                     method: "PUT",
                     headers: {
                         'Content-Type':'application/json',
-                        'Authorization' : token,
+                        'Authorization' : token
                     },
                     body: JSON.stringify(car)
                 }

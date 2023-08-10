@@ -5,7 +5,6 @@ import { SERVER_URL } from "../Scripts/constant";
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import Stack from '@mui/material/Stack';
-import CarList from "../Car/CarList.component";
 
 const Login = () => {
 
@@ -32,6 +31,10 @@ const Login = () => {
                         body: JSON.stringify(user)
                     }
             )
+            
+            if (!response.ok){
+                throw new Error("Authorization denied");
+            }
 
             const jwtToken = await response.headers.get("Authorization");
 
@@ -41,16 +44,20 @@ const Login = () => {
                 setIsAuthenticated(true);
             }
             else{
-                throw new Error("Authorization denied");
+                throw new Error("Login failed");
             }
 
         }catch(error){
             alert(error);
         }
     }
-    
+
+    const handleRedirectRegister = () => {
+        window.location.replace("/register");
+    }
+
     if (isAuthenticated){
-        return <CarList />
+        window.location.replace("/");
     }
     else{
     
@@ -59,8 +66,8 @@ const Login = () => {
                 <Stack spacing={2} alignItems="center" mt={2}>
                     <TextField name="username" label="Username" onChange={handleChange}/>
                     <TextField name="password" label="Password" onChange={handleChange}/>
-                
                     <Button variant="outline" color="primary" onClick={handleLogin}>Login</Button>
+                    <Button variant="outline" color="primary" onClick={handleRedirectRegister}>Register</Button>
                 </Stack>
             </div>
         )
