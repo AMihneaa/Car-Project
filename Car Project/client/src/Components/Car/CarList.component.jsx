@@ -19,6 +19,7 @@ const CarList = () =>{
     const token = sessionStorage.getItem("jwt");
 
     if (token == null){
+        window.confirm("You are not connected. You need to log in to access this page.");
         window.location.replace("/login");
     }
 
@@ -29,11 +30,23 @@ const CarList = () =>{
                     headers: { 'Authorization' : token }
                 }
             );
+
+            if (response.status === 401) {
+                const error = new Error("Unauthorized request")
+                error.code = "401"
+                throw error;
+            }
+
             const data = await response.json();
-            
             setCars(data._embedded.cars);
         }catch ( error ){
-            alert(error);
+            if (error.code === "401") {
+                window.confirm(error.message);
+                sessionStorage.removeItem("jwt");
+                window.location.replace("/login");
+            } else {
+                alert(error.message);
+            }
         }
     }
 
