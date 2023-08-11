@@ -1,5 +1,4 @@
-# Car-Project
-First init. Project Initialization
+# Spring Boot and ReactJS
 
 This is an application designed to test certain functionalities on both the client and server sides.
 
