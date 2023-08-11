@@ -26,8 +26,7 @@ public class AuthenticationFilter extends OncePerRequestFilter {
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
         String jtw = request.getHeader(HttpHeaders.AUTHORIZATION);
 
-        if (jtw != null){
-
+        if (jtw != null ){
             //VERIFY AND GET USE TOKEN
             String user = jwtService.getAuthUser(request);
 

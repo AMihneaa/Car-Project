@@ -1,6 +1,7 @@
 package com.project.CarDB.service;
 
 
+import io.jsonwebtoken.ExpiredJwtException;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.security.Keys;
@@ -14,7 +15,7 @@ import java.util.Date;
 @Component
 public class JwtService {
 
-    static final long EXPIRATIONTIME = 86400000; // 1 day in ms
+    static final long EXPIRATIONTIME = 3600000; // 1 hour in ms
     static final String PREFIX = "Bearer";
     static final Key key = Keys.secretKeyFor(SignatureAlgorithm.HS256);
 
@@ -44,6 +45,21 @@ public class JwtService {
         }
 
         return null;
+    }
+
+    public boolean validateToken (String token){
+        try{
+            Jwts.parserBuilder()
+                    .setSigningKey(key)
+                    .build()
+                    .parseClaimsJws(token);
+
+            return true;
+        }catch (ExpiredJwtException e){
+            return false;
+        }catch (Exception e){
+            return false;
+        }
     }
 
 }
