@@ -3,18 +3,16 @@ package com.project.CarDB.Domain.User;
 import jakarta.persistence.*;
 
 @Entity
+@Table(name = "users")
 public class User {
 
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY) @Column(name = "id", nullable = false, updatable = false)
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "userName", nullable = false, unique = true)
     private String userName;
 
-    @Column(name = "password", nullable = false)
     private String password;
 
-    @Column(name = "role", nullable = false)
     private String role;
 
     public User(){}
